@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class MainManager : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class MainManager : MonoBehaviour
     public Rigidbody Ball;
 
     public Text ScoreText;
+
+    // Fields for displaying Player Info
+    public Text CurrentPlayerName;
+    public Text BestPlayerNameAndScore;
+
     public GameObject GameOverText;
     
     private bool m_Started = false;
@@ -18,7 +24,15 @@ public class MainManager : MonoBehaviour
     
     private bool m_GameOver = false;
 
-    
+    // Static variables for holding the best player data
+    private static int BestScore;
+    private static string BestPlayer;
+
+    public void Awake()
+    {
+        //
+    }
+
     // Start is called before the first frame update
     void Start()
     {
